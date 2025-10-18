@@ -4,9 +4,9 @@ end
 
 require 'bundler/setup'
 require 'gosu'
-require_relative 'lib/state_manager'
-# require_relative 'lib/main_menu'
-require_relative 'lib/game_window'
+# require_relative 'lib/state_manager'
+# # require_relative 'lib/main_menu'
+# require_relative 'lib/game_window'
 
 class Main < Gosu::Window
 
@@ -17,8 +17,8 @@ class Main < Gosu::Window
   def initialize
     super WIDTH, HEIGHT
     self.caption = TITLE
+    Gosu.enable_undocumented_retrofication
     @state_manager = StateManager.new self
-
     @state_manager.switch_to GameWindow.new @state_manager
   end
 
@@ -29,10 +29,10 @@ class Main < Gosu::Window
   def draw
     @state_manager.draw
   end
-
-  def button_down id
-    @state_manager.button_down id
-  end
+  # 
+  # def button_down id
+  #   @state_manager.button_down id
+  # end
 end
 
 Main.new.show
