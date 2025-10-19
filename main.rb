@@ -29,10 +29,10 @@ class Main < Gosu::Window
   def draw
     @state_manager.draw
   end
-  # 
-  # def button_down id
-  #   @state_manager.button_down id
-  # end
+
+  def button_down id
+    @state_manager.button_down id
+  end
 end
 
 Main.new.show
