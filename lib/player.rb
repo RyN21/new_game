@@ -8,9 +8,7 @@ class Player
   def initialize x, y
     @x = x
     @y = y - HEIGHT
-    @gravity_velocity = 0.25
     @jump_velocity = 12
-    @velocity_decrament = 2
     @player = Gosu::Image.new('images/dark_purple_ball.png')
     @state = :on_ground
   end
@@ -49,25 +47,5 @@ class Player
     @y -= @jump_velocity
     @jump_velocity -= 0.75
     @state = :on_ground if @y + HEIGHT >= 460
-  end
-
-  # def fall
-  #   @y += @gravity_velocity
-  #   @gravity_velocity += 0.125
-  #   @state = :on_ground if @y + HEIGHT >= 460
-  #   # @state = :on_ground if on_ground?
-  # end
-
-
-  # def move_up
-  #   @y -= 7 unless @y <= 0
-  # end
-  #
-  # def move_down
-  #   @y += 7 unless @y + HEIGHT >= 480
-  # end
-
-  def enable_gravity
-
   end
 end
