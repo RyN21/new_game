@@ -2,7 +2,7 @@ class Player
   WIDTH  = 35
   HEIGHT = 35
 
-  attr_accessor :x, :y, :state, :on_ground
+  attr_accessor :x, :y, :state, :jumps
 
 
   def initialize x, y
@@ -11,6 +11,7 @@ class Player
     @jump_velocity = 12
     @player = Gosu::Image.new('images/dark_purple_ball.png')
     @state = :on_ground
+    @jumps = 2
   end
 
   def update
@@ -32,6 +33,7 @@ class Player
   def handle_state
     case @state
     when :on_ground
+      @jumps = 2
       @y = 460 - HEIGHT
       @jump_velocity = 12
     when :jumping
@@ -40,6 +42,8 @@ class Player
   end
 
   def enable_jump
+    @jumps -= 1
+    @jump_velocity = 12
     @state = :jumping
   end
 

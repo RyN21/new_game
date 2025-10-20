@@ -24,7 +24,7 @@ class GameWindow
   def button_down id
     case id
     when Gosu::KB_SPACE
-      @player.enable_jump if @player.state == :on_ground
+      @player.enable_jump if @player.jumps > 0
     end
   end
 
